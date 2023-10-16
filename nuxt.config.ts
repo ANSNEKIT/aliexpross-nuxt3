@@ -2,6 +2,7 @@
 export default defineNuxtConfig({
     pages: true,
     devtools: { enabled: true },
+    css: ["~/assets/scss/index.scss"],
     modules: [
         'nuxt-icon',
         'nuxt-lodash',
