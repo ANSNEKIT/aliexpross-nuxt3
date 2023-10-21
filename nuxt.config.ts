@@ -9,8 +9,12 @@ export default defineNuxtConfig({
         '@pinia/nuxt',
         '@pinia-plugin-persistedstate/nuxt',
         '@nuxtjs/tailwindcss',
+        '@nuxtjs/google-fonts',
         // '@nuxtjs/supabase',
     ],
+    typescript: {
+        strict: true,
+    },
     runtimeConfig: {
         public: {
             stripePK: process.env.STRIPE_PK_KEY,
@@ -22,5 +26,20 @@ export default defineNuxtConfig({
                 { src: 'https://js.stripe.com/v3/', defer: true, },
             ],   
         }
-    }
+    },
+    components: [{
+        // path: `~/components`,
+        // pathPrefix: false,
+        global: true,
+        dirs: ['~/components'],
+    }],
+    googleFonts: {
+        download: true,
+        fontsDir: 'assets/fonts',
+        stylePath: 'assets/scss/google-fonts.scss',
+        families: {
+            Inter: [400, 500, 600],
+                'Josefin+Sans': true,
+        },
+    },
 })
