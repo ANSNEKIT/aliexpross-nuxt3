@@ -1,11 +1,25 @@
 <template>
-    <router-link to="/" class="relative w-14 h-12 flex flex-col justify-center items-center">
-        <icons-header-order class="w-6 h-6" />
-        <span class="text-white text-[11px] leading-3">Заказы</span>
-        <span class="absolute top-0 right-0 py-[1px] px-1 flex items-center justify-center text-white text-[12px] bg-black rounded-md">0</span>
+    <router-link to="/" class="w-full h-full relative z-30 flex flex-col justify-center items-center">
+        <ClientOnly>
+            <component :is="IconComponent" :class="props.iconClasses" />
+        </ClientOnly>
+        
+        <span v-if="'default' in $slots && isShowText" class="text-white text-[11px] leading-3">
+            <slot />
+        </span>
+        <span v-if="isShowCount" class="absolute top-0 right-0 py-[1px] px-1 flex items-center justify-center text-white text-[12px] bg-black rounded-md">0</span>
     </router-link>
 </template>
 
 <script setup lang="ts">
+import { IHeaderButton } from '../types';
 
+const props = defineProps<IHeaderButton>()
+const IconCategory = resolveComponent("IconsIconCategory")
+const IconOder = resolveComponent("IconsIconOrder")
+const IconShopcart = resolveComponent("IconsIconShopcart")
+const IconLogin = resolveComponent("IconsIconLogin")
+const icons = { 'Order': IconOder, 'Login': IconLogin, 'Shopcart': IconShopcart, 'Category': IconCategory }
+
+const IconComponent = computed(() => icons[props.iconName])
 </script>
