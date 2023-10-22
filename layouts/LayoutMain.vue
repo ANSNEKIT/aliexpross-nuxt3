@@ -1,5 +1,9 @@
 <template>
-    <div id="LayoutMain" class="w-full fixed z-10"></div>
+    <AppContainer>
+        <div id="LayoutMain" class="">
+            <slot />
+        </div>
+    </AppContainer>
 </template>
 
 <script setup lang="ts">

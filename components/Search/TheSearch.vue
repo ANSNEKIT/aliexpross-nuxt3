@@ -11,6 +11,6 @@
 </template>
 
 <script setup lang="ts">
-const isOpenResults = ref(true);
+const isOpenResults = ref(false);
 const onClose = () => isOpenResults.value = false;
 </script>

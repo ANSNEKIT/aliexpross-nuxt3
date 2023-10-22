@@ -1,8 +1,9 @@
 <template>
     <AppHeader />
     <LayoutMain>
-        <div id="IndexPage" class="min-h-screen mt-4 mx-auto px-2 max-w-[1200px] bg-green-500">
-            <h1>Hello</h1>
+        <div id="IndexPage" class="">
+            <AppSubheader />
+            <AppBanner />
         </div>
     </LayoutMain>
 </template>

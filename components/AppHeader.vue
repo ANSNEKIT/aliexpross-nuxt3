@@ -1,48 +1,65 @@
 <template>
-    <div
-        id="topHeader"
-        class="max-w-[1440px] min-w-min px-6 mt-2.5 mx-auto sticky top-0 left-auto right-auto flex items-center justify-center z-30"
-    >
-        <div class="w-full relative bg-white border border-[#de2622] rounded-md">
-            <header class="w-full p-2 flex flex-row items-center justify-between bg-[#fe2722] border border-[#fe2722] rounded-md" :class="{'h-[56px]': isTablet, 'h-[70px]': !isTablet}">
-                <div class="max-w-[calc(36%+4px)] ml-3.5" :class="{'w-full': isTablet, 'w-[306px]': !isTablet}">
-                    <router-link to="/">
-                        <img class="h-full" :class="{'min-w-[87px]': isTablet, 'min-w-[120px]': !isTablet}" src="/img/logo.svg" :width="isTablet ? 87 : 120" alt="aliexpress link" />
-                    </router-link>
-                </div>
-                <div class="flex flex-1 items-center">
-                    <nav class="mr-2">
-                        <ul class="flex items-center gap-1">
-                            <li class="text-white" :class="{'w-9 h-9': isTablet, 'w-14 h-14': !isTablet}">
-                                <HeaderButton
-                                    icon-name="Category"
-                                    :is-show-text="!isTablet"
-                                    :icon-classes="isTablet ? 'w-[20px] h-[20px]': 'w-[24px] h-[24px]'"
-                                >Каталог</HeaderButton>
-                            </li>
-                        </ul>
-                    </nav>
-                    <SearchTheSearch :class="{'h-[52px]': !isTablet, 'h-[38px]': isTablet}" />
-                    <nav class="ml-2">
-                        <ul class="flex items-center gap-1">
-                            <li
-                                v-for="(btn, idx) in rightBarButtons"
-                                :key="btn.iconName + idx"
-                                class="text-white"
-                                :class="{'w-9 h-9': isTablet, 'w-14 h-14': !isTablet}"
-                            >
-                                <HeaderButton
-                                    :icon-name="btn.iconName"
-                                    :is-show-text="!isTablet"
-                                    :icon-classes="btn.iconClasses"
-                                >{{ btn.text }}</HeaderButton>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </header>
+    <AppContainer>
+        <div
+            id="topHeader"
+            class="mt-2.5 sticky top-0 left-auto right-auto flex items-center justify-center z-30"
+        >
+            <div class="w-full relative bg-white border border-[#de2622] rounded-md">
+                <header
+                    class="w-full p-2 flex flex-row items-center justify-between bg-[#fe2722] border border-[#fe2722] rounded-md"
+                    :class="{ 'h-[56px]': isTablet, 'h-[70px]': !isTablet }"
+                >
+                    <div
+                        class="max-w-[calc(36%+4px)] ml-3.5"
+                        :class="{ 'w-full': isTablet, 'w-[306px]': !isTablet }"
+                    >
+                        <router-link to="/">
+                            <img
+                                class="h-full"
+                                :class="{ 'min-w-[87px]': isTablet, 'min-w-[120px]': !isTablet }"
+                                src="/img/logo.svg"
+                                :width="isTablet ? 87 : 120"
+                                alt="aliexpress link"
+                            />
+                        </router-link>
+                    </div>
+                    <div class="flex flex-1 items-center">
+                        <nav class="mr-2">
+                            <ul class="flex items-center gap-1">
+                                <li
+                                    class="text-white"
+                                    :class="{ 'w-9 h-9': isTablet, 'w-14 h-14': !isTablet }"
+                                >
+                                    <HeaderButton
+                                        icon-name="Category"
+                                        :is-show-text="!isTablet"
+                                        :icon-classes="isTablet ? 'w-[20px] h-[20px]' : 'w-[24px] h-[24px]'"
+                                    >Каталог</HeaderButton>
+                                </li>
+                            </ul>
+                        </nav>
+                        <SearchTheSearch :class="{ 'h-[52px]': !isTablet, 'h-[38px]': isTablet }" />
+                        <nav class="ml-2">
+                            <ul class="flex items-center gap-1">
+                                <li
+                                    v-for="(btn, idx) in rightBarButtons"
+                                    :key="btn.iconName + idx"
+                                    class="text-white"
+                                    :class="{ 'w-9 h-9': isTablet, 'w-14 h-14': !isTablet }"
+                                >
+                                    <HeaderButton
+                                        :icon-name="btn.iconName"
+                                        :is-show-text="!isTablet"
+                                        :icon-classes="btn.iconClasses"
+                                    >{{ btn.text }}</HeaderButton>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </header>
+            </div>
         </div>
-    </div>
+    </AppContainer>
 </template>
 
 <script setup lang="ts">
@@ -56,19 +73,19 @@ const rightBarButtons = computed(() => [
     {
         text: 'Заказы',
         iconName: 'Order' as Icons,
-        iconClasses: isTablet.value ? 'w-[20px] h-[20px]': 'w-[24px] h-[24px]',
+        iconClasses: isTablet.value ? 'w-[20px] h-[20px]' : 'w-[24px] h-[24px]',
         isShowText: !isTablet.value,
     },
     {
         text: 'Корзина',
         iconName: 'Shopcart' as Icons,
-        iconClasses: isTablet.value ? 'w-[20px] h-[20px]': 'w-[24px] h-[24px]',
+        iconClasses: isTablet.value ? 'w-[20px] h-[20px]' : 'w-[24px] h-[24px]',
         isShowText: !isTablet.value,
     },
     {
         text: 'Войти',
         iconName: 'Login' as Icons,
-        iconClasses: isTablet.value ? 'w-[20px] h-[20px]': 'w-[24px] h-[24px]',
+        iconClasses: isTablet.value ? 'w-[20px] h-[20px]' : 'w-[24px] h-[24px]',
         isShowText: !isTablet.value,
     },
 ])
