@@ -8,3 +8,7 @@ export interface IHeaderButton {
     iconClasses?: string
     isShowText?: boolean | true
 }
+
+export interface ISliderCard {
+    index: number
+}

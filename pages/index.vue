@@ -3,7 +3,8 @@
     <LayoutMain>
         <div id="IndexPage" class="">
             <AppSubheader />
-            <AppBanner />
+            <AppBanner class="mb-3" />
+            <SliderMain />
         </div>
     </LayoutMain>
 </template>

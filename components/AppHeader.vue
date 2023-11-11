@@ -17,7 +17,7 @@
                             <img
                                 class="h-full"
                                 :class="{ 'min-w-[87px]': isTablet, 'min-w-[120px]': !isTablet }"
-                                src="/img/logo.svg"
+                                src="~/assets/img/logo.svg"
                                 :width="isTablet ? 87 : 120"
                                 alt="aliexpress link"
                             />
