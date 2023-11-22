@@ -37,3 +37,13 @@ export interface IProduct {
     isInstant: boolean
     isRecomendation: boolean
 }
+
+interface IBreadcrumb {
+    id: string
+    title: string
+    link: string
+}
+
+export interface IBreadcrumbsProps {
+    items: IBreadcrumb[]
+}

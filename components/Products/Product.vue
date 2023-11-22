@@ -1,6 +1,6 @@
 <template>
     <li class="min-w-[136px]">
-        <RouterLink class="relative" to="/">
+        <RouterLink class="relative" :to="`item/${product.id}`">
             <div class="mb-1">
                 <div class="flex column relative w-full max-w-[216px] max-h-[216px] ">
                     <div class="w-full overflow-hidden flex-grow rounded-3xl">
@@ -26,7 +26,7 @@
             <div v-if="product.isTop" class="absolute top-7 left-3 py-[5px] pl-[7px] pr-[9px] bg-neutral-900 rounded-full text-white text-[14px] leading-[14px] font-bold uppercase">Топ</div>
         </RouterLink>
         <div>
-            <RouterLink to="/">
+            <RouterLink :to="`item/${product.id}`">
                 <div class="">
                     <h3 class="h-[39px] max-h-[39px] text-[14px] leading-4 line-clamp-2 text-ellipsis overflow-hidden mb-2">{{ product.title }}</h3>
                     <div class="flex items-center gap-2 text-[14px] mb-1.5">
