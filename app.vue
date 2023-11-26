@@ -13,9 +13,13 @@ onMounted(() => {
 })
 
 const onResize = () => {
-    // const sm = 640
+    const sm = 640
     const md = 1024
     const xl = 1384
+    if (window.innerWidth < sm) {
+        mainStore.isMobileScreen = true
+        return
+    }
     if (window.innerWidth < md) {
         mainStore.isTabletScreen = true
         return
@@ -24,7 +28,8 @@ const onResize = () => {
         mainStore.isLgScreen = true
         return;
     }
-    mainStore.isLgScreen = false;
+    mainStore.isMobileScreen = false
+    mainStore.isLgScreen = false
     mainStore.isTabletScreen = false
 }
 const throttledResize = throttle(onResize, 50)

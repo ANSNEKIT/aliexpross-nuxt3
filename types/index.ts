@@ -47,3 +47,37 @@ interface IBreadcrumb {
 export interface IBreadcrumbsProps {
     items: IBreadcrumb[]
 }
+
+interface IProductGalleryImage {
+    id: string
+    title: string
+    imgUrl: string
+}
+
+export interface IProductGalleryPreviewProps {
+    items: IProductGalleryImage[]
+}
+interface IRating {
+    rating: Number,
+    size: Number,
+    reviews: Number,
+}
+interface IProductDescription {
+    id: string
+    title: string
+    imgUrl: string
+    rating: IRating
+    buyCount: number
+}
+export interface IProductDescriptionProps {
+    desc: IProductDescription
+}
+
+export interface IAppRatingProps {
+    rating: number
+    size: number | 16
+    reviews: number
+    color?: string
+}
+
+
