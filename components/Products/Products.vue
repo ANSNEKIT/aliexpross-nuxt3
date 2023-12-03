@@ -3,7 +3,7 @@
         <div class="relative mb-14">
             <AppTabs :tabs="tabs" is-fixed position="top" />
             <ul class="grid grid-cols-6 gap-x-3 gap-y-4 mb-4">
-                <ProductsProduct
+                <ProductsProductCard
                     v-for="(product, idx) in products"
                     :key="product.id"
                     :product="product"

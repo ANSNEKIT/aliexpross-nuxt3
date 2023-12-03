@@ -87,4 +87,16 @@ export interface ISkuItemProps {
     item: ISkuItem
 }
 
+export interface IProductPrice {
+    id: string
+    price: number
+    oldPrice: number
+    isCoupon: boolean
+    count: number
+    percentDiscount: number
+}
+
+export interface IProductPriceProps {
+    item: IProductPrice
+}
 

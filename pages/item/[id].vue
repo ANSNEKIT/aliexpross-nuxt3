@@ -4,7 +4,7 @@
         <AppContainer class="product-page" :style="isMobile ? '--areas:var(--mobile)' : '--areas:var(--desktop)'">
             <ProductDescription class="product-page__item" :desc="desc" style="--area:desc" />
             <ProductGallery class="product-page__item" style="--area:gallery" />
-            <div class="product-page__item w-16 h-16 bg-red-600" style="--area:price">price</div>
+            <ProductPrice class="product-page__item" style="--area:price" />
             <ProductSku class="product-page__item" style="--area:sku" />
             <div class="product-page__item w-16 h-16 bg-red-600" style="--area:content">content</div>
         </AppContainer>
