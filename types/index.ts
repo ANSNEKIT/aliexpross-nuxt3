@@ -48,24 +48,24 @@ export interface IBreadcrumbsProps {
     items: IBreadcrumb[]
 }
 
-interface IProductGalleryImage {
+export interface IElementImage {
     id: string
     title: string
-    imgUrl: string
+    imgUrl?: string
 }
 
 export interface IProductGalleryPreviewProps {
-    items: IProductGalleryImage[]
+    items: IElementImage[]
 }
-interface IRating {
-    rating: Number,
-    size: Number,
-    reviews: Number,
+export interface IRating {
+    rating: number
+    size: number | 16
+    reviews: number
+    color?: string
 }
 interface IProductDescription {
     id: string
     title: string
-    imgUrl: string
     rating: IRating
     buyCount: number
 }
@@ -73,11 +73,18 @@ export interface IProductDescriptionProps {
     desc: IProductDescription
 }
 
-export interface IAppRatingProps {
-    rating: number
-    size: number | 16
-    reviews: number
-    color?: string
+// interface IElementDefault {
+
+// }
+export type ISkuElement = Omit<IElementImage, "imgUrl">
+interface ISkuItem {
+    id: string
+    groupName: string
+    type: 'images' | 'buttons'
+    elements: IElementImage[] | ISkuElement[]
+}
+export interface ISkuItemProps {
+    item: ISkuItem
 }
 
 
