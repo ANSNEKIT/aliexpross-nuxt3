@@ -92,11 +92,16 @@ export interface IProductPrice {
     price: number
     oldPrice: number
     isCoupon: boolean
-    count: number
+    limitedCount: number | 0
     percentDiscount: number
 }
 
 export interface IProductPriceProps {
     item: IProductPrice
+}
+
+export interface IAppCounterProps {
+    modelValue: number
+    maxCount: number
 }
 

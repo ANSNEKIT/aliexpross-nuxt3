@@ -12,11 +12,26 @@
             </button>
         </div>
         <div class="flex gap-1 text-[15px] leading-4 text-neutral-800 font-medium mb-3">
-            <button class="flex w-1/2 items-center justify-center px-[16px] py-[12px] rounded-md bg-[#bef550]">В корзину</button>
-            <button class="flex w-1/2 items-center justify-center px-[16px] py-[12px] rounded-md bg-[#ffe45b]">Купить сейчас</button>
+            <button 
+                class="flex flex-col w-1/2 items-center justify-center px-[16px] py-[12px] rounded-md bg-[#bef550]"
+                @click="basketCount = 1"
+            >
+                <span v-if="basketCount === 0">В корзину</span>
+                <template v-else>
+                    <span class="text-[15px] leading-[15px]">В корзине</span>
+                    <span class="text-[11px] leading-[11px] text-[#898993]">Перейти</span>
+                </template>
+            </button>
+            <button v-if="basketCount === 0" class="flex w-1/2 items-center justify-center px-[16px] py-[12px] rounded-md bg-[#ffe45b]">Купить сейчас</button>
+            <AppCounter
+                v-else
+                v-model="basketCount"
+                :maxCount="item.limitedCount"
+                class="w-1/2"
+            />
         </div>
-        <div v-if="item.count" class="text-center text-[11px] leading-3 text-neutral-600">
-            Более {{ item.count }} штук в наличии
+        <div v-if="item.limitedCount" class="text-center text-[11px] leading-3 text-neutral-600">
+            Более {{ item.limitedCount }} штук в наличии
         </div>
     </div>
 </template>
@@ -26,5 +41,13 @@ import { IProductPriceProps } from "@/types"
 
 const props = defineProps<IProductPriceProps>()
 const { item } = toRefs(props)
+const basketCount = toRef(5)
+const basket = ref({
+    ...item.value,
+    count: basketCount.value
+})
 
+watch(basketCount, () => {
+    basket.value.count = basketCount.value
+})
 </script>

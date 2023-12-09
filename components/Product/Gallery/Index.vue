@@ -13,12 +13,12 @@ const items = [
     {
         id: 'gallery-item1',
         title: 'Aliexpress',
-        imgUrl: 'https://source.unsplash.com/random/216x216?sig=1',
+        imgUrl: 'http://random.imagecdn.app/500/150',
     },
     {
         id: 'gallery-item2',
         title: 'Мобильные телефоны',
-        imgUrl: 'https://source.unsplash.com/random/216x216?sig=2',
+        imgUrl: 'http://source.unsplash.com/random/216x216?sig=2',
     },
     {
         id: 'gallery-item3',
