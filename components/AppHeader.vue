@@ -34,6 +34,7 @@
                                         icon-name="Category"
                                         :is-show-text="!isTablet"
                                         :icon-classes="isTablet ? 'w-[20px] h-[20px]' : 'w-[24px] h-[24px]'"
+                                        url="/"
                                     >Каталог</HeaderButton>
                                 </li>
                             </ul>
@@ -51,6 +52,7 @@
                                         :icon-name="btn.iconName"
                                         :is-show-text="!isTablet"
                                         :icon-classes="btn.iconClasses"
+                                        :url="btn.url"
                                     >{{ btn.text }}</HeaderButton>
                                 </li>
                             </ul>
@@ -75,18 +77,24 @@ const rightBarButtons = computed(() => [
         iconName: 'Order' as Icons,
         iconClasses: isTablet.value ? 'w-[20px] h-[20px]' : 'w-[24px] h-[24px]',
         isShowText: !isTablet.value,
+        url: '/',
     },
     {
         text: 'Корзина',
         iconName: 'Shopcart' as Icons,
         iconClasses: isTablet.value ? 'w-[20px] h-[20px]' : 'w-[24px] h-[24px]',
         isShowText: !isTablet.value,
+        url: '/shopcart/detail',
     },
     {
         text: 'Войти',
         iconName: 'Login' as Icons,
         iconClasses: isTablet.value ? 'w-[20px] h-[20px]' : 'w-[24px] h-[24px]',
         isShowText: !isTablet.value,
+        url: '/',
     },
 ])
+// const goToPage = async (url = '/') => {
+//     await navigateTo({ path: url})
+// }
 </script>

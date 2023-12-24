@@ -7,6 +7,7 @@ export interface IHeaderButton {
     isShowCount?: boolean | false
     iconClasses?: string
     isShowText?: boolean | true
+    url: string
 }
 
 export interface ISliderCard {
@@ -103,5 +104,16 @@ export interface IProductPriceProps {
 export interface IAppCounterProps {
     modelValue: number
     maxCount: number
+}
+
+export interface IAppToggleButton {
+    id: string
+    title: string
+    icon: string
+    name: string
+}
+
+export interface IAppToogleButtonProps {
+    items: IAppToggleButton[]
 }
 

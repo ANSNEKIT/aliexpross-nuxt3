@@ -1,5 +1,5 @@
 <template>
-    <router-link to="/" class="w-full h-full relative z-30 flex flex-col justify-center items-center">
+    <router-link :to="url" class="w-full h-full relative z-30 flex flex-col justify-center items-center">
         <ClientOnly>
             <component :is="IconComponent" :class="props.iconClasses" />
         </ClientOnly>
@@ -15,11 +15,12 @@
 import { IHeaderButton } from '../types';
 
 const props = defineProps<IHeaderButton>()
+const { url = '/', iconName } = toRefs(props)
 const IconCategory = resolveComponent("IconsIconCategory")
 const IconOder = resolveComponent("IconsIconOrder")
 const IconShopcart = resolveComponent("IconsIconShopcart")
 const IconLogin = resolveComponent("IconsIconLogin")
 const icons = { 'Order': IconOder, 'Login': IconLogin, 'Shopcart': IconShopcart, 'Category': IconCategory }
 
-const IconComponent = computed(() => icons[props.iconName])
+const IconComponent = computed(() => icons[iconName.value])
 </script>

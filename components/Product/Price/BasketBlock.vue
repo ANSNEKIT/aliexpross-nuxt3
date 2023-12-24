@@ -14,7 +14,7 @@
         <div class="flex gap-1 text-[15px] leading-4 text-neutral-800 font-medium mb-3">
             <button 
                 class="flex flex-col w-1/2 items-center justify-center px-[16px] py-[12px] rounded-md bg-[#bef550]"
-                @click="basketCount = 1"
+                @click="addBasket"
             >
                 <span v-if="basketCount === 0">В корзину</span>
                 <template v-else>
@@ -50,4 +50,12 @@ const basket = ref({
 watch(basketCount, () => {
     basket.value.count = basketCount.value
 })
+
+const addBasket = async () => {
+    if (basketCount.value) {
+        await navigateTo({ path: '/shopcart/detail' })
+    } else {
+        basketCount.value = 1
+    }
+}
 </script>
