@@ -6,6 +6,7 @@ export const useStore = defineStore('main', {
         isMobileScreen: false,
         isTabletScreen: false,
         isLgScreen: false,
+        basket: [],
     }
   },
   persist: true,

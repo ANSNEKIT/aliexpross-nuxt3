@@ -117,3 +117,50 @@ export interface IAppToogleButtonProps {
     items: IAppToggleButton[]
 }
 
+export interface ICheckboxProps {
+    modelValue: boolean
+    checked?: false
+    disabled?: false
+    readonly?: false
+    color: 'gray' | 'dark-red'
+    checkedColor: 'gray' | 'dark-red'
+}
+
+export interface IBasketItem {
+    id: string
+    title: string
+    subtitle: string
+    link: string
+    store: string
+    tags: string[]
+    imgUrl: string
+    itemUrl: string
+    oldPrice: PriceParams
+    discountPercent: string
+    shippingPrice: string
+    price: PriceParams
+    delivery: number
+    quantity: {
+        currentCount: number
+        maxCount: number
+    }
+    checked: boolean
+
+}
+
+type PriceParams = {
+    currency: string,
+    formattedPrice: string
+    value: string
+}
+
+export interface IBacketDetailProps {
+    checkoutGroup: {
+        items: Array<{imgUrl: string, itemId: string}>
+        itemNum: number
+        itemsQuantitySum: number
+        shippingPrice: PriceParams 
+        displayPrice: PriceParams
+    }
+}
+
