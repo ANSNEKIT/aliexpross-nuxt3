@@ -104,6 +104,7 @@ export interface IProductPriceProps {
 export interface IAppCounterProps {
     modelValue: number
     maxCount: number
+    isShowDelete?: boolean | false
 }
 
 export interface IAppToggleButton {
@@ -124,6 +125,7 @@ export interface ICheckboxProps {
     readonly?: false
     color: 'gray' | 'dark-red'
     checkedColor: 'gray' | 'dark-red'
+    labelClasses?: string[]
 }
 
 export interface IBasketItem {
@@ -132,20 +134,27 @@ export interface IBasketItem {
     subtitle: string
     link: string
     store: string
+    storeLink: string
     tags: string[]
     imgUrl: string
-    itemUrl: string
     oldPrice: PriceParams
     discountPercent: string
-    shippingPrice: string
+    shippingPrice: PriceParams
     price: PriceParams
-    delivery: number
     quantity: {
         currentCount: number
         maxCount: number
     }
     checked: boolean
 
+}
+
+export interface IBasketItemsProps {
+    items: IBasketItem[]
+}
+
+export interface IBasketItemProps {
+    item: IBasketItem
 }
 
 type PriceParams = {

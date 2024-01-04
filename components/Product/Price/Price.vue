@@ -15,7 +15,7 @@ const basketBlock: IProductPrice = {
     oldPrice: 123456,
     percentDiscount: 78,
     isCoupon: true,
-    count: 1000,
+    limitedCount: 1000,
 }
 </script>
 

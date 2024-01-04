@@ -4,9 +4,9 @@
             class="product-page"
             :style="isMobile ? '--areas:var(--mobile)' : '--areas:var(--desktop)'"
         >
-            <div class="mt-10 flex gap-4">
-                <div class="w-2/3 mt-3">
-                    <div class="flex items-center justify-between">
+            <div class="mt-10 flex gap-8">
+                <div class="w-full mt-3">
+                    <div class="flex mb-8 items-center justify-between">
                         <h1 class="text-[32px] leading-9 font-bold">Корзина</h1>
                         <div class="flex items-center gap-2">
                             <AppToggleButton
@@ -14,7 +14,7 @@
                                 class="mr-2"
                                 @click="onToggle"
                             />
-                            <AppButton @click="onDelete">
+                            <AppButton class="mr-4" @click="onDelete">
                                 <IconsIconBacket class="w-8 h-8 rounded-full p-1 hover:bg-neutral-300" />
                             </AppButton>
                             <AppCheckbox
@@ -23,15 +23,14 @@
                                 checked-color="dark-red"
                             />
                         </div>
-                        
                     </div>
+                    <BasketItems :items="basketItems" />
                 </div>
-                <div class="w-[380px]">
+                <div class="w-[380px] min-w-[380px]">
                     <h2 class="text-base font-semibold text-[#18181b] mb-1.5">Оформите заказ</h2>
-                    <BacketDetail :checkout-group="backetDetail" />
+                    <BasketDetail :checkout-group="basketDetail" />
                 </div>
             </div>
-            <div></div>
         </AppContainer>
     </LayoutMain>
 </template>
@@ -40,12 +39,47 @@
 import AppToggleButton from '~/components/AppToggleButton.vue';
 import LayoutMain from '@/layouts/LayoutMain.vue';
 import { useStore } from '~/stores/main';
+import { useBasketStore } from '~/stores/basket';
 
 const mainStore = useStore()
+const basketStore = useBasketStore()
 
 const isMobile = computed(() => mainStore.isMobileScreen)
-const basket = computed(() => mainStore.basket)
-const backetDetail = {
+const basketItems = computed(() => basketStore.basketItems)
+const mockBasketItems = [
+    {
+        id: "asdf1",
+        title: "Прозрачный силиконовый чехол с защитой от царапин и блестками для Xiaomi Mi, Redmi Note, модели и цвета в ассортименте",
+        subtitle: "Бесцветный, Redmi 9A",
+        link: "/item/asdf1",
+        store: "INNOVATIVE SHARPNESS CXF7777 Store",
+        storeLink: "/store/qqqq1",
+        tags: ["Топ"],
+        imgUrl: "https://source.unsplash.com/random/120x120?sig=1",
+        oldPrice: {
+            currency: "RUB",
+            formattedPrice: "35000 ₽",
+            value: "191529.02",
+        },
+        discountPercent: "-52%",
+        shippingPrice: {
+            currency: "RUB",
+            formattedPrice: "199 ₽",
+            value: "199.00",
+        },
+        price: {
+            currency: "RUB",
+            formattedPrice: "22900,88 ₽",
+            value: "22900.88",
+        },
+        quantity: {
+            currentCount: 2,
+            maxCount: 10,
+        },
+        checked: false,
+    },
+]
+const basketDetail = {
     items: [
         {
             imgUrl: "https://source.unsplash.com/random/100x100?sig=1",
@@ -102,6 +136,10 @@ const items = [
 ]
 
 const allChecked = ref(false);
+
+onMounted(() => {
+    basketStore.setItems(mockBasketItems)
+})
 
 const onToggle = (val: string) => console.log(123123, val);
 const onDelete = (val: string) => console.log(777)

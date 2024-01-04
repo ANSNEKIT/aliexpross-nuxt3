@@ -1,8 +1,9 @@
 <template>
     <div class="inline-flex items-center">
         <label
-            class="relative flex items-center p-3 rounded-full cursor-pointer"
+            class="relative flex items-center rounded-full cursor-pointer"
             htmlFor="checkbox"
+            :class="labelClasses"
         >
             <input
                 :value="modelValue"
@@ -44,7 +45,7 @@ import { ICheckboxProps } from '@/types'
 
 const props = defineProps<ICheckboxProps>()
 const emit = defineEmits(['update:modelValue'])
-const { modelValue, checked, disabled, readonly, color, checkedColor } = toRefs(props)
+const { labelClasses, modelValue, checked, disabled, readonly, color, checkedColor } = toRefs(props)
 const colors = {
     gray: 'border-gray-300',
     'dark-red': 'border-red-950',
