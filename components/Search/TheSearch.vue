@@ -3,7 +3,7 @@
         <SearchTheSearchInput class="z-30" />
         <template class="" v-if="isOpenResults">
             <teleport to="body">
-                <AppShadow opacity="0.2" @click="onClose" />
+                <BaseAppShadow opacity="0.2" @click="onClose" />
             </teleport>
             <SearchTheSearchResults class="z-30" />
         </template>

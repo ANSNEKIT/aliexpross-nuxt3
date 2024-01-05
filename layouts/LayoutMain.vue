@@ -1,5 +1,5 @@
 <template>
-    <AppHeader />
+    <BaseAppHeader />
     <AppSubheader />
     <div id="LayoutMain" class="">
         <slot />

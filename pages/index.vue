@@ -1,7 +1,7 @@
 <template>
     <LayoutMain>
         <div id="IndexPage" class="">
-            <AppBanner class="mb-3" />
+            <BaseAppBanner class="mb-3" />
             <SliderMain />
             <Products />
         </div>

@@ -1,6 +1,6 @@
 <template>
     <LayoutMain>
-        <AppContainer
+        <BaseAppContainer
             class="product-page"
             :style="isMobile ? '--areas:var(--mobile)' : '--areas:var(--desktop)'"
         >
@@ -9,15 +9,15 @@
                     <div class="flex mb-8 items-center justify-between">
                         <h1 class="text-[32px] leading-9 font-bold">Корзина</h1>
                         <div class="flex items-center gap-2">
-                            <AppToggleButton
+                            <BaseAppToggleButton
                                 :items="items"
                                 class="mr-2"
                                 @click="onToggle"
                             />
-                            <AppButton class="mr-4" @click="onDelete">
+                            <BaseAppButton class="mr-4" @click="onDelete">
                                 <IconsIconBacket class="w-8 h-8 rounded-full p-1 hover:bg-neutral-300" />
-                            </AppButton>
-                            <AppCheckbox
+                            </BaseAppButton>
+                            <BaseAppCheckbox
                                 v-model="allChecked"
                                 color="gray"
                                 checked-color="dark-red"
@@ -31,12 +31,11 @@
                     <BasketDetail :checkout-group="basketDetail" />
                 </div>
             </div>
-        </AppContainer>
+        </BaseAppContainer>
     </LayoutMain>
 </template>
 
 <script setup lang="ts">
-import AppToggleButton from '~/components/AppToggleButton.vue';
 import LayoutMain from '@/layouts/LayoutMain.vue';
 import { useStore } from '~/stores/main';
 import { useBasketStore } from '~/stores/basket';

@@ -1,5 +1,5 @@
 <template>
-    <AppContainer>
+    <BaseAppContainer>
         <nav>
             <ul class="flex items-center gap-1">
                 <template
@@ -13,7 +13,7 @@
                 </template>
             </ul>
         </nav>
-    </AppContainer>
+    </BaseAppContainer>
 </template>
 
 <script setup lang="ts">

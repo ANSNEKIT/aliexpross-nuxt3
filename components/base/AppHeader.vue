@@ -1,5 +1,5 @@
 <template>
-    <AppContainer>
+    <BaseAppContainer>
         <div
             id="topHeader"
             class="mt-2.5 sticky top-0 left-auto right-auto flex items-center justify-center z-30"
@@ -61,7 +61,7 @@
                 </header>
             </div>
         </div>
-    </AppContainer>
+    </BaseAppContainer>
 </template>
 
 <script setup lang="ts">

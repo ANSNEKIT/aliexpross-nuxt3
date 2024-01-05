@@ -1,5 +1,5 @@
 <template>
-    <AppContainer>
+    <BaseAppContainer>
         <div
             ref="sliderWrapRef"
             class="bg-[#ffc6b4] p-3 rounded-xl"
@@ -50,7 +50,7 @@
                 </SliderNavButton>
             </div>
         </div>
-    </AppContainer>
+    </BaseAppContainer>
 </template>
 
 <script setup lang="ts">

@@ -1,7 +1,7 @@
 <template>
-    <AppContainer>
+    <BaseAppContainer>
         <div class="relative mb-14">
-            <AppTabs :tabs="tabs" is-fixed position="top" />
+            <BaseAppTabs :tabs="tabs" is-fixed position="top" />
             <ul class="grid grid-cols-6 gap-x-3 gap-y-4 mb-4">
                 <ProductsProductCard
                     v-for="(product, idx) in products"
@@ -11,7 +11,7 @@
             </ul>
             <button class="w-full py-3 px-5 bg-neutral-200 text-black text-xl font-bold rounded-full hover:bg-neutral-300">Показать ещё</button>
         </div>
-    </AppContainer>
+    </BaseAppContainer>
 </template>
 
 <script setup lang="ts">

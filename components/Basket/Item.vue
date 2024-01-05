@@ -31,7 +31,7 @@
                     <IconsIconStore class="w-4 h-4" />
                     <p class="text-xs text-neutral-800 truncate">{{ store }}</p>
                 </RouterLink>
-                <AppCounter
+                <BaseAppCounter
                     v-if="isTablet"
                     v-model="quantity.currentCount"
                     :max-count="quantity.maxCount"
@@ -41,7 +41,7 @@
             </div>
         </div>
         <div class="w-1/2 flex flex-1">
-            <AppCounter
+            <BaseAppCounter
                 v-if="!isTablet"
                 v-model="quantity.currentCount"
                 :max-count="quantity.maxCount"
@@ -61,7 +61,7 @@
                     </p>
                 </div>
             </div>
-            <AppCheckbox
+            <BaseAppCheckbox
                 v-model="checked"
                 color="gray"
                 checked-color="dark-red"

@@ -1,5 +1,5 @@
 <template>
-    <AppContainer>
+    <BaseAppContainer>
         <div
             class=" bg-[#ff6437] flex"
             :class="{ 'h-[350px]': !isTablet, 'h-[194px]': isTablet }"
@@ -28,7 +28,7 @@
                 />
             </div>
         </div>
-    </AppContainer>
+    </BaseAppContainer>
 </template>
 
 <script setup lang="ts">

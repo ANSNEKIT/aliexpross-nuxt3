@@ -1,5 +1,5 @@
 <template>
-    <AppContainer>
+    <BaseAppContainer>
         <div class="h-9 flex items-center justify-between mb-1">
             <ul class="h-[32px] flex gap-1">
                 <li class="bg-[#FFE500] text-black font-bold text-[13px] leading-4 uppercase tracking-tight rounded-md">
@@ -53,7 +53,7 @@
                     Rub</button>
             </div>
         </div>
-    </AppContainer>
+    </BaseAppContainer>
 </template>
 
 <script setup lang="ts">

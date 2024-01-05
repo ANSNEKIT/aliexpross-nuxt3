@@ -23,7 +23,7 @@
                 </template>
             </button>
             <button v-if="basketCount === 0" class="flex w-1/2 items-center justify-center px-[16px] py-[12px] rounded-md bg-[#ffe45b]">Купить сейчас</button>
-            <AppCounter
+            <BaseAppCounter
                 v-else
                 v-model="basketCount"
                 :maxCount="item.limitedCount"
