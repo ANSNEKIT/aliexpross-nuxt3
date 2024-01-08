@@ -30,12 +30,13 @@
                                     class="text-white"
                                     :class="{ 'w-9 h-9': isTablet, 'w-14 h-14': !isTablet }"
                                 >
-                                    <HeaderButton
-                                        icon-name="Category"
-                                        :is-show-text="!isTablet"
-                                        :icon-classes="isTablet ? 'w-[20px] h-[20px]' : 'w-[24px] h-[24px]'"
-                                        url="/"
-                                    >Каталог</HeaderButton>
+                                    <RouterLink to="/">
+                                        <HeaderButton
+                                            icon-name="Category"
+                                            :is-show-text="!isTablet"
+                                            :icon-classes="isTablet ? 'w-[20px] h-[20px]' : 'w-[24px] h-[24px]'"
+                                        >Каталог</HeaderButton>
+                                    </RouterLink>
                                 </li>
                             </ul>
                         </nav>
@@ -48,11 +49,19 @@
                                     class="text-white"
                                     :class="{ 'w-9 h-9': isTablet, 'w-14 h-14': !isTablet }"
                                 >
+                                    <RouterLink v-if="btn.url" :to="btn.url">
+                                        <HeaderButton
+                                            :icon-name="btn.iconName"
+                                            :is-show-text="!isTablet"
+                                            :icon-classes="btn.iconClasses"
+                                        >{{ btn.text }}</HeaderButton>
+                                    </RouterLink>
                                     <HeaderButton
-                                        :icon-name="btn.iconName"
-                                        :is-show-text="!isTablet"
-                                        :icon-classes="btn.iconClasses"
-                                        :url="btn.url"
+                                            v-else
+                                            :icon-name="btn.iconName"
+                                            :is-show-text="!isTablet"
+                                            :icon-classes="btn.iconClasses"
+                                            @click="onClickHeaderButton(btn.code)"
                                     >{{ btn.text }}</HeaderButton>
                                 </li>
                             </ul>
@@ -60,6 +69,10 @@
                     </div>
                 </header>
             </div>
+
+            <Teleport to="body">
+                <ModalsLoginModal v-if="isShowLoginModal" @close-modal="isShowLoginModal = false" />
+            </Teleport>
         </div>
     </BaseAppContainer>
 </template>
@@ -71,9 +84,11 @@ import { Icons } from "~/types";
 const mainStore = useStore();
 
 const isTablet = computed(() => mainStore.isTabletScreen)
+const isShowLoginModal = ref(true)
 const rightBarButtons = computed(() => [
     {
         text: 'Заказы',
+        code: "orders",
         iconName: 'Order' as Icons,
         iconClasses: isTablet.value ? 'w-[20px] h-[20px]' : 'w-[24px] h-[24px]',
         isShowText: !isTablet.value,
@@ -81,6 +96,7 @@ const rightBarButtons = computed(() => [
     },
     {
         text: 'Корзина',
+        code: "basket",
         iconName: 'Shopcart' as Icons,
         iconClasses: isTablet.value ? 'w-[20px] h-[20px]' : 'w-[24px] h-[24px]',
         isShowText: !isTablet.value,
@@ -88,13 +104,19 @@ const rightBarButtons = computed(() => [
     },
     {
         text: 'Войти',
+        code: "login",
         iconName: 'Login' as Icons,
         iconClasses: isTablet.value ? 'w-[20px] h-[20px]' : 'w-[24px] h-[24px]',
         isShowText: !isTablet.value,
-        url: '/',
+        url: null,
     },
 ])
 // const goToPage = async (url = '/') => {
 //     await navigateTo({ path: url})
 // }
+const onClickHeaderButton = (btnCode: string) => {
+    if (btnCode === 'login') {
+        isShowLoginModal.value = true;
+    }
+}
 </script>

@@ -1,6 +1,6 @@
 <template>
-    <BaseAppHeader />
-    <AppSubheader />
+    <HeaderBar />
+    <BaseAppSubheader />
     <div id="LayoutMain" class="">
         <slot />
     </div>

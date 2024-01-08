@@ -7,7 +7,6 @@ export interface IHeaderButton {
     isShowCount?: boolean | false
     iconClasses?: string
     isShowText?: boolean | true
-    url: string
 }
 
 export interface ISliderCard {
@@ -171,5 +170,14 @@ export interface IBacketDetailProps {
         shippingPrice: PriceParams 
         displayPrice: PriceParams
     }
+}
+
+export interface IAppModalProps {
+    title: string
+    isShowButtonClose: boolean
+}
+
+export interface IAppInputProps {
+    inputClasses: string | string[]
 }
 

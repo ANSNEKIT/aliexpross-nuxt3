@@ -1,5 +1,5 @@
 <template>
-    <router-link :to="url" class="w-full h-full relative z-30 flex flex-col justify-center items-center">
+    <button class="w-full h-full relative z-30 flex flex-col justify-center items-center">
         <ClientOnly>
             <component :is="IconComponent" :class="props.iconClasses" />
         </ClientOnly>
@@ -8,14 +8,14 @@
             <slot />
         </span>
         <span v-if="isShowCount" class="absolute top-0 right-0 py-[1px] px-1 flex items-center justify-center text-white text-[12px] bg-black rounded-md">0</span>
-    </router-link>
+    </button>
 </template>
 
 <script setup lang="ts">
-import { IHeaderButton } from '../types';
+import { IHeaderButton } from '@/types';
 
 const props = defineProps<IHeaderButton>()
-const { url = '/', iconName } = toRefs(props)
+const { iconName } = toRefs(props)
 const IconCategory = resolveComponent("IconsIconCategory")
 const IconOder = resolveComponent("IconsIconOrder")
 const IconShopcart = resolveComponent("IconsIconShopcart")
